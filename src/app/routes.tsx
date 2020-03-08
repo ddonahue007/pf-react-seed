@@ -52,7 +52,7 @@ const routes: IAppRoute[] = [
   {
     component: Dashboard,
     exact: true,
-    label: 'Dashboard',
+    label: 'All Customers',
     path: '/',
     title: 'Main Dashboard Title'
   },
