@@ -22,6 +22,7 @@ class ContactList extends React.Component {
       const { id, name, address, email } = customer
       return (
         <tr key={id}>
+          <td>{id}</td>
           <td>{name}</td>
           <td>{address}</td>
           <td>{email}</td>
@@ -36,12 +37,13 @@ class ContactList extends React.Component {
              id="table-basic">
         <thead>
         <tr role="row">
+          <th role="columnheader" scope="col">ID</th>
           <th role="columnheader" scope="col">Name</th>
           <th role="columnheader" scope="col">Address</th>
           <th role="columnheader" scope="col">Email</th>
         </tr>
         </thead>
-        <tbody role="rowgroup">
+        <tbody>
           {this.renderTableData()}
         </tbody>
       </table>
