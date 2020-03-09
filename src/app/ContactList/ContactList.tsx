@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Table from '@patternfly/react-core';
 
 class ContactList extends React.Component {
   public state = {
@@ -33,7 +34,7 @@ class ContactList extends React.Component {
 
   public render() {
     return (
-      <table className="pf-c-table pf-m-grid-md" role="grid" aria-label="This is a simple table example"
+      <table className="pf-c-table pf-m-grid-md, pf-c-table__expandable-row-content--responsive--PaddingLeft" role="grid" aria-label="Contacts"
              id="table-basic">
         <thead>
         <tr role="row">
