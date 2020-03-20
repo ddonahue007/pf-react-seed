@@ -1,13 +1,12 @@
 import * as React from 'react';
+import { PageSection, Title } from '@patternfly/react-core';
 
-import { PageSection } from '@patternfly/react-core';
-import { ContactList } from '@app/ContactList/ContactList';
-
-
-const Dashboard: React.FunctionComponent<{}> = () => (
+const Dashboard: React.FunctionComponent<any> = (props) => {
+  return (
     <PageSection>
-      <ContactList>Table</ContactList>
+      <Title size="lg">Dashboard Page Title</Title>
     </PageSection>
-  )
+  );
+}
 
 export { Dashboard };

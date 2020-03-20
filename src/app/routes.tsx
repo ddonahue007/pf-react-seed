@@ -10,8 +10,8 @@ import { LastLocationProvider, useLastLocation } from 'react-router-last-locatio
 
 let routeFocusTimer: number;
 
-const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
-const getContactModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/ContactList/ContactList');
+const getSupportModuleAsync = () => () => import('@app/Support/Support');
+const getContactModuleAsync = () => () => import('@app/ContactList/ContactList');
 
 const Support = (routeProps: RouteComponentProps) => {
   const lastNavigation = useLastLocation();
@@ -38,7 +38,7 @@ const Support = (routeProps: RouteComponentProps) => {
   );
 };
 
-const Customer = (routeProps: RouteComponentProps) => {
+const ContactList = (routeProps: RouteComponentProps) => {
   const lastNavigation = useLastLocation();
   return (
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -76,11 +76,11 @@ export interface IAppRoute {
 
 const routes: IAppRoute[] = [
   {
-    component: Dashboard,
+    component: ContactList,
     exact: true,
-    label: 'Customers',
-    path: '/customer',
-    title: 'Customer Dashboard Title'
+    label: 'Contacts',
+    path: '/contactlist',
+    title: 'Contacts Page'
   },
   {
     component: Support,

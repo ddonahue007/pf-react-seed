@@ -1,6 +1,15 @@
 import React from 'react';
 import axios from 'axios';
-import Table from '@patternfly/react-core';
+import {
+  PageSection,
+  Title,
+  Button,
+  EmptyState,
+  EmptyStateVariant,
+  EmptyStateIcon,
+  EmptyStateBody,
+  EmptyStateSecondaryActions
+} from '@patternfly/react-core';
 
 class ContactList extends React.Component {
   public state = {
@@ -34,20 +43,21 @@ class ContactList extends React.Component {
 
   public render() {
     return (
-      <table className="pf-c-table pf-m-grid-md, pf-c-table__expandable-row-content--responsive--PaddingLeft" role="grid" aria-label="Contacts"
-             id="table-basic">
-        <thead>
-        <tr role="row">
-          <th role="columnheader" scope="col">ID</th>
-          <th role="columnheader" scope="col">Name</th>
-          <th role="columnheader" scope="col">Address</th>
-          <th role="columnheader" scope="col">Email</th>
-        </tr>
-        </thead>
-        <tbody>
-          {this.renderTableData()}
-        </tbody>
-      </table>
+      <PageSection>
+        <table id="table-basic">
+          <thead>
+          <tr role="row">
+            <th role="columnheader" scope="col">ID</th>
+            <th role="columnheader" scope="col">Name</th>
+            <th role="columnheader" scope="col">Address</th>
+            <th role="columnheader" scope="col">Email</th>
+          </tr>
+          </thead>
+          <tbody>
+            {this.renderTableData()}
+          </tbody>
+        </table>
+      </PageSection>
     )}
   }
 
