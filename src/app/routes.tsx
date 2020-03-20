@@ -11,6 +11,7 @@ import { LastLocationProvider, useLastLocation } from 'react-router-last-locatio
 let routeFocusTimer: number;
 
 const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
+const getContactModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/ContactList/ContactList');
 
 const Support = (routeProps: RouteComponentProps) => {
   const lastNavigation = useLastLocation();
@@ -37,6 +38,31 @@ const Support = (routeProps: RouteComponentProps) => {
   );
 };
 
+const Customer = (routeProps: RouteComponentProps) => {
+  const lastNavigation = useLastLocation();
+  return (
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    <DynamicImport load={getContactModuleAsync()} focusContentAfterMount={lastNavigation !== null}>
+      {(Component: any) => {
+        let loadedComponent: any;
+        /* eslint-enable @typescript-eslint/no-explicit-any */
+        if (Component === null) {
+          loadedComponent = (
+            <PageSection aria-label="Loading Content Container">
+              <div className="pf-l-bullseye">
+                <Alert title="Loading" className="pf-l-bullseye__item" />
+              </div>
+            </PageSection>
+          );
+        } else {
+          loadedComponent = <Component.ContactList {...routeProps} />;
+        }
+        return loadedComponent;
+      }}
+    </DynamicImport>
+  );
+};
+
 export interface IAppRoute {
   label?: string;
   /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -52,9 +78,9 @@ const routes: IAppRoute[] = [
   {
     component: Dashboard,
     exact: true,
-    label: 'All Customers',
-    path: '/',
-    title: 'Main Dashboard Title'
+    label: 'Customers',
+    path: '/customer',
+    title: 'Customer Dashboard Title'
   },
   {
     component: Support,
