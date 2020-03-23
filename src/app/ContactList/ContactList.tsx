@@ -13,7 +13,11 @@ class ContactList extends React.Component {
     API.get()
       .then(res => {
         const customers = res.data;
-        this.setState({ customers })}})
+        this.setState({ customers })},
+        (error) => {
+          // tslint:disable-next-line:no-console
+          console.log(error);
+      })
   }
 
   public renderTableData() {
