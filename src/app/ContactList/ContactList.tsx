@@ -1,14 +1,7 @@
 import React from 'react';
-import axios from 'axios';
+import API from '@app/api';
 import {
-  PageSection,
-  Title,
-  Button,
-  EmptyState,
-  EmptyStateVariant,
-  EmptyStateIcon,
-  EmptyStateBody,
-  EmptyStateSecondaryActions
+  PageSection
 } from '@patternfly/react-core';
 
 class ContactList extends React.Component {
@@ -17,14 +10,10 @@ class ContactList extends React.Component {
   }
 
   public componentDidMount() {
-    axios.get(`http://localhost:8080/customer`)
+    API.get()
       .then(res => {
         const customers = res.data;
-        this.setState({ customers })},
-        (error) => {
-          // tslint:disable-next-line:no-console
-          console.log(error);
-      })
+        this.setState({ customers })}})
   }
 
   public renderTableData() {
