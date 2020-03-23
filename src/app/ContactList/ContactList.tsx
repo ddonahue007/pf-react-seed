@@ -19,39 +19,12 @@ class ContactList extends React.Component {
       })
   }
 
-  // public renderTableData() {
-  //   return this.state.customers.map((customer, index) => {
-  //     const { id, name, address, email } = customer
-  //     return (
-  //       <tr key={id}>
-  //         <td>{id}</td>
-  //         <td>{name}</td>
-  //         <td>{address}</td>
-  //         <td>{email}</td>
-  //       </tr>
-  //     )
-  //   })
-  // }
-
   public render() {
-    const test = this.state.customers;
     return (
       <PageSection>
-        <ContactTable rows={test}/>
+        <ContactTable rows={this.state.customers}/>
       </PageSection>
     )}
   }
-
-// export interface ISupportProps {
-//   sampleProp?: string;
-// }
-//
-// const customers = () => API.get(`http://localhost:8080/customer`);
-//
-// const ContactList: React.FunctionComponent<ISupportProps> = () => (
-//     <PageSection>
-//       <ContactTable row={customers}/>
-//     </PageSection>
-//   );
 
 export { ContactList };
