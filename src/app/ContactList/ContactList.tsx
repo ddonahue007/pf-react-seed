@@ -1,8 +1,7 @@
 import React from 'react';
 import API from '@app/api';
-import {
-  PageSection
-} from '@patternfly/react-core';
+import { ContactTable } from '@app/ContactTable/ContactTable';
+import { PageSection } from '@patternfly/react-core';
 
 class ContactList extends React.Component {
   public state = {
@@ -20,38 +19,39 @@ class ContactList extends React.Component {
       })
   }
 
-  public renderTableData() {
-    return this.state.customers.map((customer, index) => {
-      const { id, name, address, email } = customer
-      return (
-        <tr key={id}>
-          <td>{id}</td>
-          <td>{name}</td>
-          <td>{address}</td>
-          <td>{email}</td>
-        </tr>
-      )
-    })
-  }
+  // public renderTableData() {
+  //   return this.state.customers.map((customer, index) => {
+  //     const { id, name, address, email } = customer
+  //     return (
+  //       <tr key={id}>
+  //         <td>{id}</td>
+  //         <td>{name}</td>
+  //         <td>{address}</td>
+  //         <td>{email}</td>
+  //       </tr>
+  //     )
+  //   })
+  // }
 
   public render() {
+    const test = this.state.customers;
     return (
       <PageSection>
-        <table id="table-basic">
-          <thead>
-          <tr role="row">
-            <th role="columnheader" scope="col">ID</th>
-            <th role="columnheader" scope="col">Name</th>
-            <th role="columnheader" scope="col">Address</th>
-            <th role="columnheader" scope="col">Email</th>
-          </tr>
-          </thead>
-          <tbody>
-            {this.renderTableData()}
-          </tbody>
-        </table>
+        <ContactTable rows={test}/>
       </PageSection>
     )}
   }
 
-  export { ContactList };
+// export interface ISupportProps {
+//   sampleProp?: string;
+// }
+//
+// const customers = () => API.get(`http://localhost:8080/customer`);
+//
+// const ContactList: React.FunctionComponent<ISupportProps> = () => (
+//     <PageSection>
+//       <ContactTable row={customers}/>
+//     </PageSection>
+//   );
+
+export { ContactList };
