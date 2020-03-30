@@ -9,7 +9,7 @@ class ContactList extends React.Component {
   }
 
   public componentDidMount() {
-    API.get()
+    API.get("/customer")
       .then(res => {
         const customers = res.data;
         this.setState({ customers })},
@@ -22,7 +22,7 @@ class ContactList extends React.Component {
   public render() {
     return (
       <PageSection>
-        <ContactTable rows={this.state.customers}/>
+        <ContactTable caption="customers" rows={this.state.customers}/>
       </PageSection>
     )}
   }
