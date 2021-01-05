@@ -78,7 +78,7 @@
     "@patternfly/react-icons": "^3.14.28",
     "@patternfly/react-styles": "^3.6.15",
     "@patternfly/react-table": "^2.27.11",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "express": "^4.13.4",
     "react-router-dom": "^5.0.1",
     "react-router-last-location": "^2.0.1"
